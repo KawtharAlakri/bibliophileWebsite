@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{%block content %}
+  <section class="vh-100 align-items-center">
+    <div class="container py-5 h-100 ">
+      <div class="row d-flex justify-content-center h-100">
+        <div class="col col-xl-7 align-items-center">
+          <div class="card align-items-center" style="border-radius: 1rem;">
+              <div class="col-md-8 col-lg-8 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black align-items-center ">
+
+                  <form method="POST" class="py-3">
+                    {% csrf_token %}
+                    <h3 class="fw-normal mb-3 pb-3 mt-5" style="letter-spacing: 1px; align-text:center;">Login to <b>Bibliophile</b></h3>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example17">Username</label> <br>
+                        {{form.username}}
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example27">Password</label> <br>
+                      {{form.password}}
+                    </div>
+                    <div class="pt-1 mb-5 align-items-center">
+                      <input type="submit"class="btn btn-dark " value="Login" style="width:100%"><br>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

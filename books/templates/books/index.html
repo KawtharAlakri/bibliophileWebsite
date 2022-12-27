@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+  {% block content %}
+  <div class="container py-5 align-items-center">
+  <div class="container px-4 px-lg-5 mb-5 align-items-center">
+      <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-md-6"><img class="card-img-top " src="static/books/Book-lover.png" alt="..." /></div>
+          <div class="col-md-6">
+              <div class="small mb-1"></div>
+              <h1 class="display-5 fw-bolder">Bibliophile</h1>
+               <div class="d-flex">
+                 <h5><i>[Noun]: <br>a person who collects or has a great love of books.</i></h5>
+               </div>
+
+                 <div class="d-flex mt-3">
+                     <button class="btn btn-outline-dark flex-shrink-0 " type="button">
+                         <i class="bi-cart-fill me-1"></i>
+                         <a href="{% url 'books:books_list' %}">Start Exploring </a>
+                     </button>
+                 </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  {% endblock %}
+
+<!--
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-5">
+                  <h1>Meet Your Next Favorite Book!</h1>
+                  <p>You don't need to read this. Now that you hav decided to read it anyways, its just some random dummy text to fill up the space for Bootstrap banner or hero section.</p>
+                  <button class="btn"> <a href="{% url 'books:books_list' %}">Start Exploring </a></button>
+              </div>
+              </div>
+              <div class="col-sm-6">
+                  <img class="img-fluid" src="static/books/Book-lover.png" alt="">
+              </div>
+          </div>
+      </div>
+      -->

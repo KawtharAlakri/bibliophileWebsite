@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <mata charset = "utf-8">
+  <title>Bibliophile</title>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+  <style>
+  .content {
+    background-color: #E5E3D7;
+  }
+  .MyNavbar {
+    background-color: #A6A998
+  }
+  .jumbotron {
+  background-color: #E5E3D7;
+  }
+  .btn {
+    background-color: #524F4A;
+    color: #E5E3D7;
+    border-color: #524F4A;
+    padding: 0.5em 1.5em;
+    border-radius: 2em;
+    box-shadow: 5px 5px 5px rgba(105, 73, 73, 0.15);
+  }
+  .btn a{
+      color: #E5E3D7;
+  }
+  .btn:hover {
+    border-color: #E5E3D7;
+  }
+
+  </style>
+  </head>
+<body >
+  <nav class="navbar navbar-expand-lg navbar-light MyNavbar py-2">
+    <a class="navbar-brand" href="{% url 'books:home' %}">Bibliophile</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse MyNavItem" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link MyNavItem" href="{% url 'books:home' %}">Home</a>
+        </li>
+          <a class="nav-link MyNavItem dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Books
+          </a>
+          <li>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'books:books_list' %}">All</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'books:fiction_list' %}">Fiction</a>
+            <a class="dropdown-item" href="{% url 'books:nonfiction_list' %}">Non-Fiction</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link MyNavItem"  href="{% url 'books:add_book' %}">Add Book</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        {%if user.is_authenticated %}
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-default btn-sm"><a href="{% url 'logout' %}"> Logout </a></button>
+        <button type="button" class="btn btn-default btn-sm "disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16"> <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/></svg>
+           {{user.username}}
+      </button>
+    </div>
+      {% else %}
+        <button class="btn" type="submit"><a href="{% url 'login' %}"> Login </a></button>
+        {% endif %}
+      </form>
+    </div>
+  </nav>
+
+<div class="content">
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-muted"  style="background-color:#524F4A;">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="color:#E5E3D7;">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold">Bibliophile.com </a>
+    </div>
+  </footer>
+
+</body>
+</html>
