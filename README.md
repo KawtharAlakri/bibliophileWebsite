@@ -26,3 +26,7 @@ To launch the website, naviagte to the project file in the command line (Anacond
 ## Status
 Done with developing basic requirements. Additional functionalities and enhancement of GUI will be applied in the future.
  
+## Account 
+To login to admin dashboard, you can use the following credintials:
+* Username: admin1
+* password: Kawthar2001
