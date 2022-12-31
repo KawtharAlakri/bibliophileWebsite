@@ -56,7 +56,7 @@ def add_book(request):
             pages = form.cleaned_data["pages"]
             genre=form.cleaned_data["genre"]
             ISBN=form.cleaned_data["ISBN"]
-
+            #use the created function to upload the attachment and get the path
             handle_uploaded_file(request.FILES['cover'])
             coverFileName= request.FILES['cover'].name
             coverPath = "books/{0}".format(coverFileName)
